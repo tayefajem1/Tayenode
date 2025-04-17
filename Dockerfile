@@ -4,8 +4,8 @@ FROM node:18-alpine
 # Set the working directory
 WORKDIR /app
 
-# Copy only the package files to leverage Docker cache
-COPY package.json package-lock.json ./
+# Copy dependency files
+COPY package*.json ./
 
 # Install dependencies
 RUN npm ci --only=production
@@ -13,9 +13,9 @@ RUN npm ci --only=production
 # Copy the rest of the application code
 COPY . .
 
-# Expose the port your app runs on (optional, but good practice)
+# Expose the port (adjust if needed)
 EXPOSE 3000
 
-# Define the command to run your app
+# Start the application
 CMD ["node", "service.js"]
 
