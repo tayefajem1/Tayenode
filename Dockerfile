@@ -17,5 +17,5 @@ COPY . .
 EXPOSE 3000
 
 # Start the application
-CMD ["node", "service.js"]
+CMD ["node", "server.js"]
 
