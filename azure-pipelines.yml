@@ -23,16 +23,16 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'Doker1'
-    repository: 'tayefajem/tayenode'
+    repository: 'tayefajem/seun'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-    tags: '2'
+    tags: '1'
 
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(system.defaultworkingdirectory)'
     Contents: 'deploy.yml'
-    TargetFolder: '${build.artifactstagingdirectory)'
+    TargetFolder: '$(build.artifactstagingdirectory)'
 
 - task: PublishBuildArtifacts@1
   inputs:
